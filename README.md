@@ -71,8 +71,9 @@
 
   <script>
     // 使用你的实际firebaseConfig
-    const firebaseConfig = {
-      apiKey: "AIzaSyC80oJXAtAM9z7MWrPasnKefREJKF2a4KE",
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyC80oJXAtAM9z7MWrPasnKefREJKF2a4KE",
   authDomain: "emoji-garden-7b65f.firebaseapp.com",
   databaseURL: "https://emoji-garden-7b65f-default-rtdb.firebaseio.com",
   projectId: "emoji-garden-7b65f",
@@ -80,7 +81,7 @@
   messagingSenderId: "944937277557",
   appId: "1:944937277557:web:97b4474d33a745f335c03c",
   measurementId: "G-Q1RSEJ056M"
-    };
+};
 
     // 初始化Firebase (compat写法)
     firebase.initializeApp(firebaseConfig);
