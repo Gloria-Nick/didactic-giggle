@@ -31,9 +31,15 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
+  .flower-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    position: relative;
+  }
   .flower {
     font-size: 2rem;
-    margin: 10px;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
     padding: 5px;
@@ -42,6 +48,23 @@
   .flower:hover {
     transform: scale(1.3);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  .delete-btn {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff5252;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    display: none;
+  }
+  .flower-container:hover .delete-btn {
+    display: block;
   }
   #add-form {
     margin: 20px 0;
@@ -132,9 +155,12 @@
       garden.innerHTML = "";
       const flowers = snapshot.val();
       if (flowers) {
-        const flowerArray = Object.values(flowers);
+        const flowerArray = Object.entries(flowers); // 获取 key 和 value
         flowerCount.textContent = `你已经种了 ${flowerArray.length} 朵花！`;
-        flowerArray.forEach((flower) => {
+        flowerArray.forEach(([key, flower]) => {
+          const flowerContainer = document.createElement("div");
+          flowerContainer.className = "flower-container";
+
           const flowerEl = document.createElement("div");
           flowerEl.className = "flower";
           flowerEl.textContent = flower.emoji;
@@ -143,7 +169,19 @@
               `这朵花的意义：${flower.meaning}\n种下时间：${flower.date}`
             );
           });
-          garden.appendChild(flowerEl);
+
+          const deleteBtn = document.createElement("button");
+          deleteBtn.className = "delete-btn";
+          deleteBtn.textContent = "×";
+          deleteBtn.addEventListener("click", () => {
+            if (confirm("确定要删除这朵花吗？")) {
+              gardenRef.child(key).remove();
+            }
+          });
+
+          flowerContainer.appendChild(flowerEl);
+          flowerContainer.appendChild(deleteBtn);
+          garden.appendChild(flowerContainer);
         });
       } else {
         flowerCount.textContent = "花园里还没有花，快来种下第一朵吧！";
