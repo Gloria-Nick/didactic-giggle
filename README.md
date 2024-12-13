@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -29,6 +29,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   .flower {
     font-size: 2rem;
@@ -40,11 +41,12 @@
   }
   .flower:hover {
     transform: scale(1.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
   #add-form {
     margin: 20px 0;
   }
-  #flower-input {
+  #flower-input, #meaning-input {
     font-size: 1rem;
     padding: 5px;
     margin-right: 10px;
@@ -76,7 +78,8 @@
   <h1>我们的Emoji小花园 🌸</h1>
   <p>你我共同的花园，每一朵花都是爱的见证</p>
   <div id="add-form">
-    <input id="flower-input" placeholder="请输入emoji花花或它的意义" />
+    <input id="flower-input" placeholder="请输入emoji花花" />
+    <input id="meaning-input" placeholder="请输入花的意义" />
     <button id="add-button">种花</button>
   </div>
   <div id="flower-count"></div>
@@ -105,18 +108,22 @@
     const garden = document.getElementById("garden");
     const addButton = document.getElementById("add-button");
     const flowerInput = document.getElementById("flower-input");
+    const meaningInput = document.getElementById("meaning-input");
     const flowerCount = document.getElementById("flower-count");
 
     // 点击添加花朵
     addButton.addEventListener("click", () => {
       const emoji = flowerInput.value.trim();
-      if (emoji) {
+      const meaning = meaningInput.value.trim();
+      if (emoji && meaning) {
         const flowerData = {
           emoji,
+          meaning,
           date: new Date().toLocaleString(),
         };
         gardenRef.push(flowerData);
         flowerInput.value = "";
+        meaningInput.value = "";
       }
     });
 
@@ -131,9 +138,10 @@
           const flowerEl = document.createElement("div");
           flowerEl.className = "flower";
           flowerEl.textContent = flower.emoji;
-          flowerEl.title = `种下时间：${flower.date}`;
           flowerEl.addEventListener("click", () => {
-            alert(`这朵花的意义：${flower.emoji}\n种下时间：${flower.date}`);
+            alert(
+              `这朵花的意义：${flower.meaning}\n种下时间：${flower.date}`
+            );
           });
           garden.appendChild(flowerEl);
         });
