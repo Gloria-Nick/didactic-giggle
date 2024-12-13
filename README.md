@@ -70,7 +70,7 @@
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
   <script>
-    // 替换为你的Firebase配置
+    // npm install firebase
     const firebaseConfig = {
       apiKey: "YOUR_API_KEY",
       authDomain: "YOUR_APP.firebaseapp.com",
