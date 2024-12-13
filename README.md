@@ -70,16 +70,9 @@
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
   <script>
-    // // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyC80oJXAtAM9z7MWrPasnKefREJKF2a4KE",
+    // 使用你的实际firebaseConfig
+    const firebaseConfig = {
+      apiKey: "AIzaSyC80oJXAtAM9z7MWrPasnKefREJKF2a4KE",
   authDomain: "emoji-garden-7b65f.firebaseapp.com",
   databaseURL: "https://emoji-garden-7b65f-default-rtdb.firebaseio.com",
   projectId: "emoji-garden-7b65f",
@@ -87,22 +80,9 @@ const firebaseConfig = {
   messagingSenderId: "944937277557",
   appId: "1:944937277557:web:97b4474d33a745f335c03c",
   measurementId: "G-Q1RSEJ056M"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-    const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_APP.firebaseapp.com",
-      databaseURL: "https://YOUR_APP.firebaseio.com",
-      projectId: "YOUR_APP",
-      storageBucket: "YOUR_APP.appspot.com",
-      messagingSenderId: "XXXXXXXXXX",
-      appId: "1:XXXXXXXXXX:web:XXXXXXXXXX"
     };
 
-    // 初始化Firebase
+    // 初始化Firebase (compat写法)
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
     const gardenRef = db.ref('garden'); // 数据库存放花朵的位置
