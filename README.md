@@ -1,4 +1,3 @@
-# didactic-giggle
 <!DOCTYPE html>
 <html lang="en">
 <head>
