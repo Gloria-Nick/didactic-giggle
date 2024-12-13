@@ -16,7 +16,6 @@
   }
   h1 {
     color: #00796b;
-    text-shadow: 2px 2px 4px #4db6ac;
   }
   .garden {
     width: 90%;
@@ -30,7 +29,6 @@
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   .flower {
     font-size: 2rem;
@@ -42,7 +40,6 @@
   }
   .flower:hover {
     transform: scale(1.3);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
   #add-form {
     margin: 20px 0;
