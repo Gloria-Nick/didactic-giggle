@@ -70,7 +70,6 @@
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
   <script>
-    // 使用你的实际firebaseConfig
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyC80oJXAtAM9z7MWrPasnKefREJKF2a4KE",
