@@ -70,7 +70,28 @@
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
   <script>
-    // npm install firebase
+    // // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyC80oJXAtAM9z7MWrPasnKefREJKF2a4KE",
+  authDomain: "emoji-garden-7b65f.firebaseapp.com",
+  databaseURL: "https://emoji-garden-7b65f-default-rtdb.firebaseio.com",
+  projectId: "emoji-garden-7b65f",
+  storageBucket: "emoji-garden-7b65f.firebasestorage.app",
+  messagingSenderId: "944937277557",
+  appId: "1:944937277557:web:97b4474d33a745f335c03c",
+  measurementId: "G-Q1RSEJ056M"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
     const firebaseConfig = {
       apiKey: "YOUR_API_KEY",
       authDomain: "YOUR_APP.firebaseapp.com",
